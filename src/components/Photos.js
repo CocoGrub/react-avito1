@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styles from '../mainPage/mainPage.module.css'
 import {connect} from "react-redux";
-
+import Modal from "./modal";
 const Photos=(props)=>{
 
     const [modal,setModal]=useState(false)
@@ -37,20 +37,3 @@ const mapStateToProps=(state)=>{
     }
 }
 export default connect(mapStateToProps,{})(Photos)
-
-const Modal=(props)=>{
-    const onClose = e => {
-        props.show = false;
-    };
-    if(props.currentId===props.show){
-        return <div  onClick={()=>{props.setModal(false)}}>{props.children}
-            <button
-                onClose={e => {
-                    onClose() }}
-            >
-                Close
-            </button></div>
-    }
-
-    return null
-}
