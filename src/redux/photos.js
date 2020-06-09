@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const GET_PHOTOS = 'GET_PHOTOS';
+const GET_PHOTOS = 'photos/GET_PHOTOS';
 
 const initialState={
     photos:[],

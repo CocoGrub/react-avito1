@@ -1,11 +1,15 @@
-import {applyMiddleware, compose, createStore} from "redux";
+import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunkMiddleware from "redux-thunk";
-import PhotosPageReducer from "./redux-photo";
+import PhotosPageReducer from "./photos";
+import BigPhotoReducer from "./photoAndComments";
+const reducers=combineReducers({
+    PhotosPageReducer,BigPhotoReducer
+})
 
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(PhotosPageReducer,composeEnhancers(applyMiddleware(thunkMiddleware)));
+const store = createStore(reducers,composeEnhancers(applyMiddleware(thunkMiddleware)));
 
 
 export default store

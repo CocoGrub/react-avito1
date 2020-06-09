@@ -2,38 +2,43 @@ import React, {useState} from "react";
 import styles from '../mainPage/mainPage.module.css'
 import {connect} from "react-redux";
 import Modal from "./modal";
-const Photos=(props)=>{
+import PhotosPageReducer from "../redux/photos";
 
-    const [modal,setModal]=useState(false)
+const Photos = (props) => {
+
+    const [modal, setModal] = useState(false)
     // const [currentId,setCurrentId] =useState('')
 
-    const showModal=(k)=>{
+    const showModal = (k) => {
         // setCurrentId(k)
         setModal(k)
     }
-    const closeModal=(k)=>{
+    const closeModal = (k) => {
         // setCurrentId(k)
-        if(k!==false){
+        if (k !== false) {
             setModal(false)
         }
 
     }
 
-    return<div>
+    return <div>
         <div className={styles.main}>
             <ul>
-                {props.photos.map((v,k)=>{
+                {props.photos.map((v, k) => {
                     console.log(v)
-                    return <li key={k}><img src={v.url} onClick={()=>{showModal(k)}} ></img>< Modal onClose={closeModal} currentId={k} setModal={setModal} show={modal}>Message in Modal</Modal></li>
+                    return <li key={k}><img src={v.url} onClick={() => {
+                        showModal(k)
+                    }}></img>< Modal id={v.id} onClose={closeModal} currentId={k} setModal={setModal} show={modal}>Message in
+                        Modal</Modal></li>
                 })}
             </ul>
         </div>
     </div>
 
 }
-const mapStateToProps=(state)=>{
-    return{
-        photos:state.photos
+const mapStateToProps = (state) => {
+    return {
+        photos: state.PhotosPageReducer.photos
     }
 }
-export default connect(mapStateToProps,{})(Photos)
+export default connect(mapStateToProps, {})(Photos)

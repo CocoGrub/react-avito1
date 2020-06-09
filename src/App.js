@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {getPhotosThunk} from "./redux/redux-photo";
+import {getPhotosThunk} from "./redux/photos";
 import {connect} from "react-redux";
 import MainPage from "./mainPage/mainPage";
 
