@@ -31,9 +31,10 @@ const Photos = (props) => {
                     return <li key={k} onClick={() => {
 
                         showModal(v,k)
-                    }}><img src={v.url} />< Modal id={v.id} onClose={closeModal} currentId={k} setModal={setModal} show={modal}/></li>
+                    }}><img src={v.url} /></li>
                 })}
             </ul>
+            < Modal id={modal} onClose={closeModal} currentId={modal} setModal={setModal} show={modal}/>
         </div>
     </div>
 
