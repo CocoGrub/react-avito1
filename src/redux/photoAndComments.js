@@ -3,13 +3,14 @@ import axios from 'axios'
 const GET_PHOTO_COMMENTS = 'photoAndComments/GET_PHOTO_COMMENTS';
 
 const initialState={
-    photos:[],
-    bigPhoto:[],
+    id:null,
+    url:null,
+comments:[]
 }
 
 const BigPhotoReducer=(state=initialState,action)=>{
     switch (action.type) {
-        case GET_PHOTO_COMMENTS:return {...state,bigPhoto: action.payload}
+        case GET_PHOTO_COMMENTS:return {...state,id:action.payload.id,url:action.payload.url,comments:action.payload.comments}
         default:return state
     }
 }

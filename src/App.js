@@ -6,14 +6,20 @@ import {connect} from "react-redux";
 import MainPage from "./mainPage/mainPage";
 
 function App(props) {
-  useEffect(()=>{
-    props.getPhotosThunk()
-  },[])
-  return (
-    <div className="App">
-      <MainPage/>
-    </div>
-  );
+    useEffect(() => {
+        props.getPhotosThunk()
+    }, [props.onePhoto])
+
+
+    return (
+        <div className="App"><MainPage/></div>
+    )
 }
 
-export default connect(null,{getPhotosThunk})(App);
+const mapStateToProps = (state) => {
+    return {
+        onePhoto: state.photos
+
+    }
+}
+export default connect(mapStateToProps, {getPhotosThunk})(App);

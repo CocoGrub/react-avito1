@@ -1,20 +1,33 @@
+img{
+    width: 100%;
+}
 
 .modal{
-    position :fixed;
-    top: 25%;
-    left: 50%;
-
-    animation :show .25s ease forwards;
-    z-index :22;
-    background :#fafafa;
-    padding: 1rem;
-    min-height: 200px;
-    min-width :200px;
-    display: flex;
-    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.38);
+    display: grid;
+    align-content: center;
     justify-content: center;
 
+
 }
+.main{
+
+    background: white;
+    padding: 2rem;
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+}
+@media screen {
+
+}
+
 __close {
     position: absolute;
     top: 4px;
