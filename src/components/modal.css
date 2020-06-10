@@ -1,5 +1,6 @@
 img{
     width: 100%;
+    padding-bottom: 2rem;
 }
 
 .modal{
@@ -15,6 +16,60 @@ img{
 
 
 }
+.time{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+    color: #999999;
+
+}
+.comment{
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+input{
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+input[type=text]{
+    padding: 0;
+    height: 2rem;
+    width: 100%;
+
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+input[type=submit] {
+
+    width: 100%;
+    background: #4997D0;
+    border-radius: 3px;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    border: none;
+}
+
+input[type=submit]:hover {
+    background-color: #91a9dc;
+}
 .main{
 
     background: white;
@@ -28,13 +83,12 @@ img{
 
 }
 
-__close {
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    font-size: 1.25rem;
-    font-weight: bold;
+.close-button {
+    color: #aaa;
+
 }
+
+
 
 @-moz-keyframes show {
     to {

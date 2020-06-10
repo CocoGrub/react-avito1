@@ -28,11 +28,10 @@ const Photos = (props) => {
         <div className={styles.main}>
             <ul>
                 {props.photos.map((v, k) => {
-                    console.log(v)
-                    return <li key={k}><img src={v.url} onClick={() => {
+                    return <li key={k} onClick={() => {
+
                         showModal(v,k)
-                    }}></img>< Modal id={v.id} onClose={closeModal} currentId={k} setModal={setModal} show={modal}>Message in
-                        Modal</Modal></li>
+                    }}><img src={v.url} />< Modal id={v.id} onClose={closeModal} currentId={k} setModal={setModal} show={modal}/></li>
                 })}
             </ul>
         </div>
