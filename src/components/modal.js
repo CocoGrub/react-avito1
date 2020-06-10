@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {createPortal} from "react-dom";
 import './modal.css'
 import {connect} from "react-redux";
+import {PostComment} from "../redux/photoAndComments";
 
 
 const Modal = (props) => {
@@ -21,7 +22,7 @@ const Modal = (props) => {
     }
     const handleSubmit=(e)=>{
         e.preventDefault()
-        alert(Username)
+        props.PostComment(props.comments[0].id,Username,UserMessage)
     }
 
     if (props.show !== false) {
@@ -52,14 +53,14 @@ const Modal = (props) => {
                     }) : 'Комментариев пока нет'}</div>
 
                     <button className={"close-button"}
-                        onClick={() => {
-                            props.setModal(false)
-                        }}
-                    >
-                        Close
-                    </button>
+                            onClick={() => {
+                                props.setModal(false)
+                            }}>Close</button>
+
                 </div>
+
             </div>
+
         </div>, document.body)
     }
 
@@ -73,4 +74,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {})(Modal)
+export default connect(mapStateToProps, {PostComment})(Modal)

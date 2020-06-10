@@ -31,4 +31,23 @@ export const getBigThunk=(imageId)=>{
     }
 }
 
+export const postThem=(x)=>{
+    return{
+        action:'POST',
+        payload:x
+    }
+}
+
+export const PostComment=(imageId,id,comment)=>{
+    return (dispatch)=>{
+        axios.post(`https://boiling-refuge-66454.herokuapp.com/images/${imageId}/comments`,{
+            id:id,
+            comment:comment
+        }).then((response)=>{
+            console.log(response)
+            dispatch(postThem())
+        })
+    }
+}
+
 export default BigPhotoReducer;
