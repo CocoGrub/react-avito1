@@ -1,10 +1,10 @@
 import React from "react";
 import styles from './mainPage.module.css'
-import Photos from '../components/Photos'
+import Photos from '../components/gallery/gallery'
 const MainPage=(props)=>{
 
 return<div>
-    <h1>Main</h1>
+    <h1>Test App</h1>
     <div className={styles.main}>
     <div>
         <Photos/>

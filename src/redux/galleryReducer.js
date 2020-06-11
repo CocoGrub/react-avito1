@@ -1,15 +1,10 @@
 import axios from 'axios'
-
-const GET_PHOTOS = 'photos/GET_PHOTOS';
+import {GET_PHOTOS} from "./action-types";
 
 const initialState=[
-
 ]
 
-
-
-
-const PhotosPageReducer=(state=initialState,action)=>{
+const galleryReducer=(state=initialState, action)=>{
     switch (action.type) {
         case GET_PHOTOS:return  action.payload
         default:return state
@@ -23,6 +18,9 @@ export const getPhotos=(x)=>{
         payload:x
     }
 }
+
+//thunk
+
 export const getPhotosThunk=()=>{
     return (dispatch)=>{
         axios.get('https://boiling-refuge-66454.herokuapp.com/images').then((response)=>{
@@ -31,4 +29,4 @@ export const getPhotosThunk=()=>{
     }
 }
 
-export default PhotosPageReducer;
+export default galleryReducer;

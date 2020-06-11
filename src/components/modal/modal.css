@@ -1,24 +1,23 @@
-img{
+img {
     width: 100%;
     padding-bottom: 2rem;
 }
 
-.modal{
+.modal {
     position: fixed;
     z-index: 22;
     top: 0;
     left: 0;
-    width:100%;
+    width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.38);
     display: grid;
     align-content: center;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-
 }
-.time{
+
+.time {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -28,9 +27,9 @@ img{
     align-items: center;
     padding-bottom: 0.5rem;
     color: #999999;
-
 }
-.comment{
+
+.comment {
 
     font-family: Roboto;
     font-style: normal;
@@ -40,25 +39,25 @@ img{
     display: flex;
     align-items: center;
     text-align: center;
-
     color: #000000;
 }
-input{
+
+input {
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
 }
-input[type=text]{
+
+input[type=text] {
     padding: 0;
     height: 2rem;
     width: 100%;
-
     background: #FFFFFF;
     border: 1px solid #CCCCCC;
     box-sizing: border-box;
     border-radius: 3px;
 }
-input[type=submit] {
 
+input[type=submit] {
     width: 100%;
     background: #4997D0;
     border-radius: 3px;
@@ -72,17 +71,14 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #91a9dc;
 }
-.main{
 
+.main {
     background: white;
     padding: 2rem;
     margin: 2rem;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;
-}
-@media screen {
-
 }
 
 .close-button {
@@ -94,29 +90,7 @@ input[type=submit]:hover {
     border-radius: 0.25rem;
     background-color: lightgray;
 }
-
-
-
-@-moz-keyframes show {
-    to {
-        transform: translate(-50%, -50%) scale(1);
-    }
+.message{
+    padding-top: 1rem;
 }
 
-@-webkit-keyframes show {
-    to {
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-@-o-keyframes show {
-    to {
-        transform: translate(-50%, -50%) scale(1);
-    }
-}
-
-@keyframes show {
-    to {
-        transform: translate(-50%, -50%) scale(1);
-    }
-}

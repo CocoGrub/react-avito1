@@ -1,16 +1,18 @@
 import axios from 'axios'
+import {GET_PHOTO_COMMENTS, POST_COMMENT} from "./action-types";
 
-const GET_PHOTO_COMMENTS = 'photoAndComments/GET_PHOTO_COMMENTS';
 
 const initialState={
     id:null,
     url:null,
-comments:[]
+comments:[],
+    postStatus:null,
 }
 
-const BigPhotoReducer=(state=initialState,action)=>{
+const modalReducer=(state=initialState, action)=>{
     switch (action.type) {
         case GET_PHOTO_COMMENTS:return {...state,id:action.payload.id,url:action.payload.url,comments:action.payload.comments}
+        case POST_COMMENT:return {...state,postStatus: action.payload}
         default:return state
     }
 }
@@ -22,32 +24,36 @@ export const getPhotos=(x)=>{
         payload:x
     }
 }
-export const getBigThunk=(imageId)=>{
+
+export const postAnswer=(x)=>{
+    return{
+        type:POST_COMMENT,
+        payload:x
+    }
+}
+
+//thunks
+
+export const getFormThunk=(imageId)=>{
     return (dispatch)=>{
+
         axios.get(`https://boiling-refuge-66454.herokuapp.com/images/${imageId}`).then((response)=>{
             console.log(response)
             dispatch(getPhotos(response.data))
         })
     }
 }
-
-export const postThem=(x)=>{
-    return{
-        action:'POST',
-        payload:x
-    }
-}
-
 export const PostComment=(imageId,id,comment)=>{
     return (dispatch)=>{
-        axios.post(`https://boiling-refuge-66454.herokuapp.com/images/${imageId}/comments`,{
-            id:id,
-            comment:comment
-        }).then((response)=>{
-            console.log(response)
-            dispatch(postThem())
+
+        axios.post(`https://boiling-refuge-66454.herokuapp.com/images/${imageId}/comments`).then((response)=>{
+
+            dispatch(postAnswer('success'))
+        }).catch((response)=>{
+            dispatch(postAnswer('server currently is inactive'))
+
         })
     }
 }
 
-export default BigPhotoReducer;
+export default modalReducer;

@@ -1,14 +1,13 @@
 import React, {useEffect} from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {getPhotosThunk} from "./redux/photos";
+import {getPhotosThunk} from "./redux/galleryReducer";
 import {connect} from "react-redux";
 import MainPage from "./mainPage/mainPage";
 
 function App(props) {
     useEffect(() => {
         props.getPhotosThunk()
-    }, [props.onePhoto])
+    }, [props])
 
 
     return (
@@ -18,7 +17,7 @@ function App(props) {
 
 const mapStateToProps = (state) => {
     return {
-        onePhoto: state.photos
+        isFull: state.photos
 
     }
 }

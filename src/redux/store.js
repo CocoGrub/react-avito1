@@ -1,9 +1,9 @@
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import thunkMiddleware from "redux-thunk";
-import PhotosPageReducer from "./photos";
-import BigPhotoReducer from "./photoAndComments";
+import galleryReducer from "./galleryReducer";
+import modalReducer from "./modalReducer";
 const reducers=combineReducers({
-    PhotosPageReducer,BigPhotoReducer
+    galleryReducer,modalReducer
 })
 
 
